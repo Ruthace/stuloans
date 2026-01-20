@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STU Loans - Same Day Loans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .logo span {
+      color: #ffd700;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ffd700;
+    }
+
+    .contact-info span {
+      font-weight: 600;
+      color: #ffd700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), 
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/></svg>');
+      background-size: cover;
+      color: white;
+      padding: 4rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+    }
+
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+    }
+
+    .hero-content button {
+      background: #ffd700;
+      color: #333;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .hero-content button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Form Container */
+    .form-container {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+    }
+
+    .loan-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .loan-form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .loan-form button {
+      width: 100%;
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .loan-form button:hover {
+      background: #764ba2;
+    }
+
+    /* About Us */
+    .about-us {
+      padding: 4rem 0;
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    .about-us h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #667eea;
+    }
+
+    .about-us p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Services */
+    .services {
+      padding: 4rem 0;
+    }
+
+    .services h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #667eea;
+    }
+
+    .service-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-item h3 {
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+
+    /* Contact */
+    .contact {
+      padding: 4rem 0;
+      background: #f9f9f9;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #667eea;
+    }
+
+    .contact p {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact-form button {
+      width: 100%;
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #764ba2;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .header .container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .navbar ul {
+        gap: 1rem;
+      }
+
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1>STU<span>Loans</span></h1>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="contact-info">
+        <p>Call us now! <span>+234 706 170 0000</span></p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Need a Loan Today?</h2>
+      <p>Fast, reliable, and flexible loan solutions tailored for students. Get the financial assistance you need now.</p>
+      <button onclick="document.querySelector('.loan-form').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+    </div>
+    <div class="form-container">
+      <form class="loan-form" action="https://formsubmit.co/chiamakaokakpu36@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone" required>
+        <button type="submit">Apply for a Loan Now!</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="about-us">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>At STULoans, we are dedicated to helping students achieve financial stability through quick and secure loans. Our mission is to provide solutions that empower you to meet your needs without hassle or delays. With years of experience, we are trusted by thousands for our transparent and customer-first approach.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-items">
+        <div class="service-item">
+          <h3>Personal Loans</h3>
+          <p>Flexible repayment options to meet your unique needs.</p>
+        </div>
+        <div class="service-item">
+          <h3>Emergency Loans</h3>
+          <p>Quick and easy funding during urgent times.</p>
+        </div>
+        <div class="service-item">
+          <h3>Short-Term Loans</h3>
+          <p>Solutions for immediate cash flow challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>We're here to help. Reach out to us for any questions or assistance.</p>
+      <form class="contact-form" action="https://formsubmit.co/chiamakaokakpu36@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 STULoans. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
